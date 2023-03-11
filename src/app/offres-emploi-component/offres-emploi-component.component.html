@@ -1,0 +1,21 @@
+<form (submit)="rechercherEmploiParEntreprise()">
+  <label >Rechercher un emploi par entreprise :</label>
+  <input type="text" name="entreprise" [(ngModel)]="nomEntrepriseRecherche">
+  <button type="submit">Rechercher</button>
+</form>
+<div *ngFor="let p of listeEmploi">
+  {{p.titre}}
+  {{p.description}}
+  {{p.lieu}}
+  {{p.etat}}
+  <div *ngIf="p.etat==false">
+    <input type="submit" value="postuler" disabled>
+  </div>
+  <div *ngIf="p.etat==true">
+    <input type="submit" value="postuler" >
+  </div>
+</div>
+<input type="submit" value="Bilan" (click)="Somme()" >
+<h4>{{somme}}</h4>
+
+
